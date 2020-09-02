@@ -1,0 +1,18 @@
+.Header {
+    background: #00796b;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+.Header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Logo {
+    font-size: 24px;
+    color: #e0f2f1;
+    text-transform: uppercase;
+    font-weight: bold;
+}
