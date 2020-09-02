@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './MainPage.css';
 import axiosBase from "../../axiosBase";
+import ReactHtmlParser from 'react-html-parser';
 import {Sugar} from "react-preloaders";
 
 const MainPage = props => {
@@ -23,7 +24,7 @@ const MainPage = props => {
                 {pageContent !== null ? (
                     <>
                         <h1 className="Title">{pageContent.title}</h1>
-                        <div className="Content">{pageContent.content}</div>
+                        <div className="Content">{ ReactHtmlParser(pageContent.content) }</div>
                     </>
                 ) : null}
             </div>
