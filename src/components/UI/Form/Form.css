@@ -1,0 +1,44 @@
+.Form {
+    width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.Form__label {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.Form__field {
+    padding: 10px;
+    border: none;
+    border-bottom: 3px solid #009688;
+    border-radius: 10px;
+    box-shadow: 0 1px 1px 1px rgba(0, 150, 136, 0.5);
+    margin-bottom: 30px;
+    transition: 0.5s;
+}
+
+.Form__field:focus {
+    box-shadow: 0 0 3px 1px rgba(0, 150, 136, 0.8);
+}
+
+.Form__send-btn {
+    background: #00bcd4;
+    color: #e0f7fa;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: auto;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-top: 30px;
+}
+
+.Form__send-btn:hover {
+    background: #009688;
+}

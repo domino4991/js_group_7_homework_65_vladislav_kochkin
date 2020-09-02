@@ -9,7 +9,7 @@ import {PAGES_URL} from "../../../constants";
 
 const Form = props => {
     return (
-        <form className="Form">
+        <form className="Form" onSubmit={props.submit}>
             <label htmlFor="select-pages" className="Form__label">Pages</label>
             <select
                 id="select-pages"
@@ -31,6 +31,7 @@ const Form = props => {
                 onChange={props.changedField}
                 type="text"
                 placeholder="Enter title"
+                required
             />
             <h5 className="Form__label">Content</h5>
             <FroalaEditorComponent
