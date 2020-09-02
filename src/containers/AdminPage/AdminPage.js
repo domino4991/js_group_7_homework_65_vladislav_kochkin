@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './AdminPage.css';
 import Form from "../../components/UI/Form/Form";
 import axiosBase from "../../axiosBase";
+import {Sugar} from "react-preloaders";
 
 const AdminPage = props => {
     const [editPage, setEditPage] = useState({
@@ -10,11 +11,10 @@ const AdminPage = props => {
     });
 
     const [page, setPage] = useState('home');
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
-            setLoading(true);
             const response = await axiosBase.get(`/${page}.json`);
             setEditPage(response.data);
         }
@@ -40,14 +40,28 @@ const AdminPage = props => {
             ...prevState,
             content: editor
         }));
-    }
+    };
+
+    const onSubmitEditPage = async e => {
+        e.preventDefault();
+        if(editPage.title === '' || editPage.content === '') return;
+        try {
+            const editPageCopy = {...editPage};
+            await axiosBase.put(`/${page}.json`, editPageCopy);
+        } finally {
+            props.history.replace(`${page === 'home' ? '/' : `/pages/${page}`}`)
+        }
+    };
+
     return (
         <section className="Edit-page">
+            <Sugar customLoading={loading}/>
             <Form
                 choice={onChoicePage}
                 value={page}
                 title={editPage.title}
                 model={editPage.content}
+                submit={e => onSubmitEditPage(e)}
                 changedField={e => onChangeEditPage(e)}
                 changedContent={onChangeContent}
             />
