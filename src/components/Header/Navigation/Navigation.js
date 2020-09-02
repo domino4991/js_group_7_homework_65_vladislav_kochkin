@@ -7,22 +7,13 @@ const Navigation = () => {
     return (
         <nav className="Nav">
             <ul className="Nav__list">
-                <li className="Nav__list-item">
-                    <NavLink
-                        to="/"
-                        exact
-                        className="Nav__list-link"
-                    >
-                        Home
-                    </NavLink>
-                </li>
                 {PAGES_URL.map(item => (
                     <li
                         key={item.id}
                         className="Nav__list-item"
                     >
                         <NavLink
-                            to={`/pages/${item.id}`}
+                            to={item.id === 'home' ? '/' : `/pages/${item.id}`}
                             exact
                             className="Nav__list-link"
                         >
@@ -30,6 +21,14 @@ const Navigation = () => {
                         </NavLink>
                     </li>
                 ))}
+                <li className="Nav__list-item">
+                    <NavLink
+                        to="/pages/admin"
+                        className="Nav__list-link"
+                    >
+                        Admin
+                    </NavLink>
+                </li>
             </ul>
         </nav>
     );

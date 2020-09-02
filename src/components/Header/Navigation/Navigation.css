@@ -1,0 +1,25 @@
+.Nav__list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+}
+
+.Nav__list-item {
+    margin-left: 20px;
+}
+
+.Nav__list-link {
+    text-decoration: none;
+    color: #e0f2f1;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+.Nav__list-item .active,
+.Nav__list-link:hover {
+    color: #03a9f4;
+}
